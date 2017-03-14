@@ -1,0 +1,26 @@
+*.class
+.DS_Store
+node_modules/
+dist/
+npm-debug.log
+yarn-error.log
+# Package Files #
+*.jar
+*.war
+*.ear
+.project
+.classpath
+.settings
+.pydevproject
+target
+.DS_Store
+dist
+/dist/
+logs
+*.log
+bin
+node_modules
+/node_nodules/
+# idea #
+.idea
+*.iml
