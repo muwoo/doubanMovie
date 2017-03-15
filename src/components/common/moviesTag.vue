@@ -1,5 +1,5 @@
 <template>
-  <div class="moviesList">
+  <div class="moviesList" v-loading="loadingMoving">
     <div class="movieTag" v-for="(subject,index) in data.subjects">
       <ul>
         <li class="film-pic">
@@ -29,34 +29,34 @@
   </div>
 </template>
 <script>
-  import {Utils} from '../../common/util'
 export default{
-  props:{
+  props: {
     data: Object
   },
   data () {
     return {
     }
   },
-  watch:{
-    data(){
-      console.log(this.data);
+  watch: {
+    data () {
+
     }
   },
-  mounted () {
-    console.log(this.data);
-  },
-  methods () {
-
+  computed: {
+    loadingMoving () {
+      console.log(this.$store.getters.loadingMoving)
+      return this.$store.getters.loadingMoving
+    }
   }
 }
 </script>
 <style rel="stylesheet/less" lang="less">
 .moviesList{
-  width: 1000px;
+  width: 950px;
   margin: 30px auto 0;
+  min-height: 500px;
   .movieTag{
-    width: 128px;
+    width: 118px;
     height: 270px;
     overflow: hidden;
     font-size: 12px;

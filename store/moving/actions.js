@@ -9,7 +9,8 @@ let utils = new Utils()
 export const actions = {
   getMoving({commit}){
     utils.get('/movie/in_theaters', {}).then(res => {
-      commit('MOVING_TITLE', {title: 'monkey'})
+      commit('MOVING_LIST', {list: res});
+      commit('MOVING_LOADING', {loading: false});
     })
   }
 }

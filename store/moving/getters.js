@@ -5,5 +5,11 @@
 export const getters = {
   title: state => {
     return state.title
+  },
+  movingList: state => {
+    return state.movingList
+  },
+  loadingMoving: state => {
+    return state.loadingMoving
   }
 }
