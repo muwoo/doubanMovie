@@ -10,7 +10,8 @@ const state = {
   movingList: {
     subjects: []
   },
-  loadingMoving: true
+  loadingMoving: true,
+  upcomBody: {}
 }
 
 export default {

@@ -11,5 +11,8 @@ export const getters = {
   },
   loadingMoving: state => {
     return state.loadingMoving
+  },
+  upcomBody: state => {
+    return state.upcomBody
   }
 }

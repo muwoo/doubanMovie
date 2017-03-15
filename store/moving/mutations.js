@@ -12,5 +12,8 @@ export const mutations = {
   },
   [types.MOVING_LOADING] (state, {loading}){
     state.loadingMoving = loading
+  },
+  [types.UP_COMBODY] (state, {upcomBody}){
+    state.upcomBody = upcomBody;
   }
 }
