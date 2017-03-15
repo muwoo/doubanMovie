@@ -11,13 +11,11 @@
           <a href="">{{subject.title}}</a>
         </li>
         <li class="film-rate">
-          <!--<el-rate-->
-            <!--v-model="value5"-->
-            <!--disabled-->
-            <!--show-text-->
-            <!--text-color="#ff9900"-->
-            <!--text-template="{value}">-->
-          <!--</el-rate>-->
+          <el-rate
+            v-model="subject.rating.average"
+            disabled>
+          </el-rate>
+          <span class="rateNum">{{subject.rating.average * 2}}</span>
         </li>
         <li class="film-button">
         <span>
@@ -35,11 +33,15 @@ export default{
   },
   data () {
     return {
+      value:0,
+      subject:{}
     }
   },
   watch: {
     data () {
+      this.subject = this.data.subjects;
 
+      console.log(this.subject);
     }
   },
   computed: {
@@ -103,6 +105,16 @@ export default{
       display: inline-block;
       margin: 4px auto 2px;
       height: 19px;
+      .el-rate{
+        display: inline-block;
+        .el-rate__icon{
+          font-size: 12px;
+        }
+      }
+      .rateNum{
+        display: inline-block;
+        font-size: 12px;
+      }
     }
     .film-button{
       span{
