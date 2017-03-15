@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
 
-    <p>123123</p>
+    <p>{{title}}</p>
 
   </div>
 </template>
@@ -20,8 +20,14 @@
     methods: {
       getMovie () {
         utils.get('/movie/in_theaters', {}).then(res => {
+          this.$store.commit('MOVING_TITLE', {title: 'monkey'})
           console.log(res)
         })
+      }
+    },
+    computed: {
+      title () {
+        return this.$store.getters.title
       }
     }
   }
