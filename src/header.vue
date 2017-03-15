@@ -31,7 +31,7 @@
           url: '/'
         }, {
           title: '即将上映',
-          url: ''
+          url: '/upcoming'
         }, {
           title: 'Top250',
           url: ''

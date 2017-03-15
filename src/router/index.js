@@ -13,7 +13,7 @@ export default new Router({
     },
     {
       path: '/upcoming',
-      name: 'upcoming222',
+      name: 'upcoming',
       component: Upcoming
     }
   ]
