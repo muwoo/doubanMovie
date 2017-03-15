@@ -15,5 +15,8 @@ export const mutations = {
   },
   [types.UP_COMBODY] (state, {upcomBody}){
     state.upcomBody = upcomBody;
+  },
+  [types.MOVIE_CITY] (state, {city}){
+    state.city = city;
   }
 }

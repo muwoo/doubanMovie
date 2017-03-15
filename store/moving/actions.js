@@ -13,10 +13,10 @@ export const actions = {
       commit('MOVING_LOADING', {loading: false});
     })
   },
-  getUpcoming({commit}){
-    utils.get('/movie/coming_soon', {}).then(res => {
-    	console.log(res)
-      commit('UP_COMBODY', {upcomBody: res})
+  getUpcoming({commit,state}){
+    utils.get('/movie/coming_soon', {city:state.city}).then(res => {
+      commit('UP_COMBODY', {upcomBody: res});
+      commit('MOVING_LOADING', {loading: false});
     })
 
   }

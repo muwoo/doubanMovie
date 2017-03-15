@@ -33,15 +33,15 @@ export default{
   },
   data () {
     return {
-      value:0,
-      subject:{}
+      value: 0,
+      subject: {}
     }
   },
   watch: {
     data () {
-      this.subject = this.data.subjects;
+      this.subject = this.data.subjects
 
-      console.log(this.subject);
+      console.log(this.subject)
     }
   },
   computed: {
