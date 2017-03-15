@@ -4,7 +4,7 @@
       <div class="douban-search">
         <a class="title">豆瓣电影</a>
         <div class="search-container">
-          <el-input placeholder="电影、影人、影院、电视剧" v-model="input5">
+          <el-input placeholder="电影、影人、影院、电视剧" >
             <el-button slot="append" icon="search"></el-button>
           </el-input>
         </div>
