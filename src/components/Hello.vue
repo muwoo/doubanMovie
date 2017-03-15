@@ -7,23 +7,16 @@
 </template>
 
 <script>
-  import {Utils} from '../common/util'
-  let utils = new Utils()
   export default {
     name: 'hello',
     data () {
       return {}
     },
     mounted () {
-      this.getMovie()
+      this.$store.dispatch('getMoving')
     },
     methods: {
-      getMovie () {
-        utils.get('/movie/in_theaters', {}).then(res => {
-          this.$store.commit('MOVING_TITLE', {title: 'monkey'})
-          console.log(res)
-        })
-      }
+
     },
     computed: {
       title () {
