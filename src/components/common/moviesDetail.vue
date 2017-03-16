@@ -69,17 +69,17 @@
       return {
 
       }
-
     },
     mounted () {
-      this.$store.dispatch('getMovieDetail');
+      let id = this.$route.query.id
+      this.$store.commit('MOVING_ID', {id})
+      this.$store.dispatch('getMovieDetail')
     },
     watch () {
 
     },
     computed: {
       movieDetail () {
-        console.log(this.$store.getters.movieDetail)
         return this.$store.getters.movieDetail
       }
     }

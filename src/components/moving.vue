@@ -21,7 +21,7 @@
     components: {
       'MoviesTag': (resolve) => {
         require(['./common/moviesTag.vue'], resolve)
-      },
+      }
     },
     computed: {
       /**

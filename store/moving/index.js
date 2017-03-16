@@ -18,12 +18,12 @@ const state = {
   loadingUpComing: true,
   searchLoading: true,
   upcomBody: {},
-  ranking250:{},
+  ranking250: {},
   city: '杭州',
-  upcomBody: {},
-  movieDetail:{},
-  id:''
-  city: '杭州',
+  movieDetail: {
+    images: {}
+  },
+  id:'',
   start:0
 }
 

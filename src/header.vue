@@ -54,8 +54,9 @@
       },
       searchMovie () {
         this.$store.commit('SEARCH_TEXT', {searchText: this.content})
+        this.$store.dispatch('getSearchList')
         this.$store.commit('SEARCH_LOADING', {loading: true})
-        this.$router.push('/search')
+        this.$router.push({path: '/search', query: {searchText: this.content}})
       }
     }
   }

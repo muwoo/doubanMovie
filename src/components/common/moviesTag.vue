@@ -33,19 +33,18 @@ export default{
   },
   data () {
     return {
-      value:0,
+      value: 0,
       subject: {}
     }
   },
   watch: {
     data () {
-      console.log(this.data);
+      console.log(this.data)
     }
   },
   methods: {
     showDetail (id) {
-      this.$router.push({path:'/moviesDetail'})
-      this.$store.commit('MOVING_ID', {id: id})
+      this.$router.push({path: '/moviesDetail', query: {id: id}})
     }
   },
   computed: {

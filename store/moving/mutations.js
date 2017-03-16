@@ -37,7 +37,6 @@ export const mutations = {
   },
   [types.SEARCH_LOADING] (state, {loading}){
     state.searchLoading = loading
-    state.upcomBody = upcomBody;
   },
   [types.MOVING_ID] (state,{id}){
     state.id = id;

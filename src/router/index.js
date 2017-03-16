@@ -32,7 +32,7 @@ export default new Router({
     {
       path: '/moviesDetail',
       name: 'moviesDetail',
-      component:MoviesDetail
+      component: MoviesDetail
     }
 
   ]
