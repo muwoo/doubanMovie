@@ -21,7 +21,7 @@ export const getters = {
   city: state => {
     return state.city
   },
-  loadingUpComing: state => {
-    return state.loadingUpComing
+  ranking250: state => {
+    return state.ranking250
   }
 }

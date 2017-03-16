@@ -13,6 +13,7 @@ const state = {
   loadingMoving: true,
   loadingUpComing: true,
   upcomBody: {},
+  ranking250:{},
   city: '杭州'
 }
 

@@ -27,5 +27,17 @@ export const actions = {
       commit('UP_COMBODY', {upcomBody: res})
       commit('UP_COMING', {loading: false})
     })
+  },
+  /**
+   * 获取排名250
+   * @param commit
+   * @param state
+   */
+  loadingtop250({commit}){
+    utils.get('/movie/top250', {}).then(res => {
+      console.log(res)
+    commit('LOAD_TOP250', {ranking250: res});
+    commit('MOVING_LOADING', {loading: false});
+  })
   }
 }

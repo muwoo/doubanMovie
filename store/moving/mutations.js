@@ -22,5 +22,8 @@ export const mutations = {
   },
   [types.UP_COMING] (state, {loading}){
     state.loadingUpComing = loading
+  },
+  [types.LOAD_TOP250] (state, {ranking250}){
+    state.ranking250 = ranking250
   }
 }
