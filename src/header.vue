@@ -34,7 +34,7 @@
           url: '/upcoming'
         }, {
           title: 'Top250',
-          url: ''
+          url: '/top250'
         }, {
           title: '口碑榜',
           url: ''
