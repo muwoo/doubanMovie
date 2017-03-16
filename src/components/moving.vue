@@ -6,17 +6,16 @@
 
 <script>
   export default {
-    name: 'hello',
     data () {
       return {
 
       }
     },
     mounted () {
+      /**
+       * 获取正在上映列表
+       */
       this.$store.dispatch('getMoving')
-    },
-    methods: {
-
     },
     components: {
       'MoviesTag': (resolve) => {
@@ -24,9 +23,10 @@
       }
     },
     computed: {
-      title () {
-        return this.$store.getters.title
-      },
+      /**
+       * function 电影列表函数
+       * @returns {computed.movingList|state.movingList|{subjects}|getters.movingList|*}
+       */
       movingList () {
         return this.$store.getters.movingList
       }

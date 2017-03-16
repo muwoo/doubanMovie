@@ -40,13 +40,10 @@ export default{
   watch: {
     data () {
       this.subject = this.data.subjects
-
-      console.log(this.subject)
     }
   },
   computed: {
     loadingMoving () {
-      console.log(this.$store.getters.loadingMoving)
       return this.$store.getters.loadingMoving
     }
   }

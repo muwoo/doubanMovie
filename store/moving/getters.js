@@ -7,8 +7,8 @@ export const getters = {
     return state.title
   },
   movingList: state => {
-    for(let subject of state.movingList.subjects){
-      subject.rating.average = subject.rating.average/2
+    for (let subject of state.movingList.subjects) {
+      subject.rating.average = subject.rating.average / 2
     }
     return state.movingList
   },
@@ -20,5 +20,8 @@ export const getters = {
   },
   city: state => {
     return state.city
+  },
+  loadingUpComing: state => {
+    return state.loadingUpComing
   }
 }

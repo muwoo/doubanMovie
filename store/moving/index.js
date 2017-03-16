@@ -11,6 +11,7 @@ const state = {
     subjects: []
   },
   loadingMoving: true,
+  loadingUpComing: true,
   upcomBody: {},
   city: '杭州'
 }

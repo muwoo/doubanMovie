@@ -7,17 +7,25 @@ import {Utils} from '../../src/common/util'
 
 let utils = new Utils()
 export const actions = {
-  getMoving({commit}){
-    utils.get('/movie/in_theaters', {}).then(res => {
-      commit('MOVING_LIST', {list: res});
-      commit('MOVING_LOADING', {loading: false});
+  /**
+   * 获取电影列表
+   * @param commit
+   */
+  getMoving({commit, state}){
+    utils.get('/movie/in_theaters', {city: state.city}).then(res => {
+      commit('MOVING_LIST', {list: res})
+      commit('MOVING_LOADING', {loading: false})
     })
   },
-  getUpcoming({commit,state}){
-    utils.get('/movie/coming_soon', {city:state.city}).then(res => {
-      commit('UP_COMBODY', {upcomBody: res});
-      commit('MOVING_LOADING', {loading: false});
+  /**
+   * 获取当前城市即将上映电影列表
+   * @param commit
+   * @param state
+   */
+  getUpcoming({commit, state}){
+    utils.get('/movie/coming_soon', {city: state.city}).then(res => {
+      commit('UP_COMBODY', {upcomBody: res})
+      commit('UP_COMING', {loading: false})
     })
-
   }
 }

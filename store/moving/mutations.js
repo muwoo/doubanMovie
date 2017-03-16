@@ -14,9 +14,13 @@ export const mutations = {
     state.loadingMoving = loading
   },
   [types.UP_COMBODY] (state, {upcomBody}){
-    state.upcomBody = upcomBody;
+    state.upcomBody = upcomBody
   },
   [types.MOVIE_CITY] (state, {city}){
-    state.city = city;
+    state.city = city
+    state.loadingMoving = true
+  },
+  [types.UP_COMING] (state, {loading}){
+    state.loadingUpComing = loading
   }
 }
