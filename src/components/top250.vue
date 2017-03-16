@@ -39,7 +39,30 @@
     </div>
   </div>
 </template>
-
+<script>
+  export default{
+    props: {
+      data: Object
+    },
+    data () {
+      return {
+      }
+    },
+    mounted () {
+      this.$store.dispatch('loadingtop250')
+    },
+    computed: {
+      ranking250 () {
+        console.log(this.$store.getters.ranking250)
+        return this.$store.getters.ranking250
+      },
+      loadingMoving () {
+        console.log(this.$store.getters.loadingMoving)
+        return this.$store.getters.loadingMoving
+      }
+    }
+  }
+</script>
 <style rel="stylesheet/less" lang="less">
   #wrapper {
     width: 950px;
