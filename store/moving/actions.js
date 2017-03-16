@@ -44,11 +44,19 @@ export const actions = {
    * @param commit
    * @param state
    */
-  loadingtop250({commit}){
-    utils.get('/movie/top250', {}).then(res => {
+  loadingtop250({commit, state}){
+    console.log('start:'+state.start)
+    utils.get('/movie/top250', {start:state.start,count:7}).then(res => {
       console.log(res)
     commit('LOAD_TOP250', {ranking250: res});
     commit('MOVING_LOADING', {loading: false});
   })
+  },
+  getSearchList({commit, state}){
+    console.log(state.searchText)
+    utils.get('/movie/search', {q: state.searchText}).then(res => {
+      commit('SEARCH_LIST', {searchList: res})
+      commit('SEARCH_LOADING', {loading: false})
+    })
   }
 }
