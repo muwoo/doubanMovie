@@ -1,5 +1,4 @@
 <template>
-  313123
   <div id="wrapper">
     <div id="content">
       <div class="grid-16-8 clearfix" v-loading="loadingMoving">
