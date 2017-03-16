@@ -1,6 +1,6 @@
 <template>
   <div class="search-list" v-loading="searchLoading">
-    <searchTag v-for="subject in searchList.subjects" :subject="subject"></searchTag>
+    <searchTag v-for="(subject,index) in searchList.subjects" :subject="subject" :key="index"></searchTag>
   </div>
 </template>
 
