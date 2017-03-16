@@ -19,7 +19,8 @@ const state = {
   searchLoading: true,
   upcomBody: {},
   ranking250:{},
-  city: '杭州'
+  city: '杭州',
+  start:0
 }
 
 export default {

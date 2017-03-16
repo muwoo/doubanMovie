@@ -26,6 +26,9 @@ export const mutations = {
   [types.LOAD_TOP250] (state, {ranking250}){
     state.ranking250 = ranking250
   },
+  [types.PAGE_START] (state, {start}){
+    state.start = start
+  },
   [types.SEARCH_TEXT] (state, {searchText}){
     state.searchText = searchText
   },

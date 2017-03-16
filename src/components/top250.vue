@@ -18,6 +18,7 @@
       return {}
     },
     mounted () {
+      this.$store.commit('PAGE_START', {start: 8})
       this.$store.dispatch('loadingtop250')
     },
     components: {

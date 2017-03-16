@@ -38,5 +38,8 @@ export const getters = {
   },
   ranking250: state => {
     return state.ranking250
+  },
+  start: state => {
+    return state.start
   }
 }
