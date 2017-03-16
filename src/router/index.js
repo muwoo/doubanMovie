@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import moving from '@/components/moving'
 import Upcoming from '@/components/upcoming'
 import Top250 from '@/components/top250'
+import MoviesDetail from '@/components/common/moviesDetail'
+
 Vue.use(Router)
 
 export default new Router({
@@ -20,6 +22,12 @@ export default new Router({
       path: '/top250',
       name: 'Top250',
       component: Top250
+    },
+    {
+      path: '/moviesDetail',
+      name: 'moviesDetail',
+      component:MoviesDetail
     }
+
   ]
 })

@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <MoviesTag :data="movingList"></MoviesTag>
+
   </div>
 </template>
 
@@ -20,7 +21,7 @@
     components: {
       'MoviesTag': (resolve) => {
         require(['./common/moviesTag.vue'], resolve)
-      }
+      },
     },
     computed: {
       /**

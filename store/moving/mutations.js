@@ -25,5 +25,12 @@ export const mutations = {
   },
   [types.LOAD_TOP250] (state, {ranking250}){
     state.ranking250 = ranking250
+    state.upcomBody = upcomBody;
+  },
+  [types.MOVING_ID] (state,{id}){
+    state.id = id;
+  },
+  [types.MOVING_DETAIL] (state,{movieDetail}){
+    state.movieDetail = movieDetail;
   }
 }

@@ -14,7 +14,10 @@ const state = {
   loadingUpComing: true,
   upcomBody: {},
   ranking250:{},
-  city: '杭州'
+  city: '杭州',
+  upcomBody: {},
+  movieDetail:{},
+  id:''
 }
 
 export default {

@@ -23,5 +23,12 @@ export const getters = {
   },
   ranking250: state => {
     return state.ranking250
+  },
+  id: state => {
+    return state.id
+  },
+  movieDetail: state => {
+    return state.movieDetail
   }
+
 }

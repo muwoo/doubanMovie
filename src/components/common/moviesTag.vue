@@ -3,8 +3,8 @@
     <div class="movieTag" v-for="(subject,index) in data.subjects">
       <ul>
         <li class="film-pic">
-          <a href="">
-            <img :src="subject.images.large" alt="">
+          <a @click="showDetail(subject.id)">
+            <img  :src="subject.images.large" alt="">
           </a>
         </li>
         <li class="film-name">
@@ -33,13 +33,19 @@ export default{
   },
   data () {
     return {
-      value: 0,
+      value:0,
       subject: {}
     }
   },
   watch: {
     data () {
-      this.subject = this.data.subjects
+      console.log(this.data);
+    }
+  },
+  methods: {
+    showDetail (id) {
+      this.$router.push({path:'/moviesDetail'})
+      this.$store.commit('MOVING_ID', {id: id})
     }
   },
   computed: {

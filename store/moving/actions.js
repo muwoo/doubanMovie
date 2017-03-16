@@ -18,6 +18,17 @@ export const actions = {
     })
   },
   /**
+   *获取电影详情
+   * @param commit
+   */
+  getMovieDetail({commit,state}){
+    utils.get(`/movie/subject/${state.id}`, {}).then(res => {
+      console.log(res);
+      commit('MOVING_DETAIL',{movieDetail:res})
+    })
+
+  },
+  /**
    * 获取当前城市即将上映电影列表
    * @param commit
    * @param state
