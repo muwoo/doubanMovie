@@ -10,8 +10,13 @@ const state = {
   movingList: {
     subjects: []
   },
+  searchList: {
+    subjects: []
+  },
+  searchText: '',
   loadingMoving: true,
   loadingUpComing: true,
+  searchLoading: true,
   upcomBody: {},
   ranking250:{},
   city: '杭州'

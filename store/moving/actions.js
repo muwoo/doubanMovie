@@ -39,5 +39,12 @@ export const actions = {
     commit('LOAD_TOP250', {ranking250: res});
     commit('MOVING_LOADING', {loading: false});
   })
+  },
+  getSearchList({commit, state}){
+    console.log(state.searchText)
+    utils.get('/movie/search', {q: state.searchText}).then(res => {
+      commit('SEARCH_LIST', {searchList: res})
+      commit('SEARCH_LOADING', {loading: false})
+    })
   }
 }

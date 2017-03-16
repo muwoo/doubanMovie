@@ -21,6 +21,21 @@ export const getters = {
   city: state => {
     return state.city
   },
+  loadingUpComing: state => {
+    return state.loadingUpComing
+  },
+  searchList: state => {
+    for (let subject of state.searchList.subjects) {
+      subject.rating.average = subject.rating.average / 2
+    }
+    return state.searchList
+  },
+  searchText: state => {
+    return state.searchText
+  },
+  searchLoading: state => {
+    return state.searchLoading
+  },
   ranking250: state => {
     return state.ranking250
   }
