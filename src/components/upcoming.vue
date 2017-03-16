@@ -9,7 +9,7 @@
               [切换城市]
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item v-for="city in citys" :command="city.name">{{city.name}}</el-dropdown-item>
+              <el-dropdown-item v-for="(city,index) in citys" :command="city.name" :key="index">{{city.name}}</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </div>
@@ -22,7 +22,7 @@
       </div>
       <div class="two-list" v-loading="loadingUpComing">
         <ul class="clearfix">
-          <upComingTag v-for="item in upcomBody.subjects" :item="item"></upComingTag>
+          <upComingTag v-for="(item,index) in upcomBody.subjects" :item="item" :key="index"></upComingTag>
         </ul>
       </div>
     </article>
