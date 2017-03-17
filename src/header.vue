@@ -36,15 +36,6 @@
         }, {
           title: 'Top250',
           url: '/top250'
-        }, {
-          title: '口碑榜',
-          url: ''
-        }, {
-          title: '北美票房榜',
-          url: ''
-        }, {
-          title: '新片榜',
-          url: ''
         }]
       }
     },

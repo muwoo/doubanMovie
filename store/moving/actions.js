@@ -36,7 +36,7 @@ export const actions = {
    */
   getUpcoming({commit, state}){
     utils.get('/movie/coming_soon', {city: state.city,start: state.upcomBody.start+1}).then(res => {
-      
+
       if(state.upcomBody.subjects && state.upcomBody.subjects.length){
         res.subjects = state.upcomBody.subjects.concat(res.subjects);
         commit('PAGE_LOAD', {pageload: false})
@@ -60,6 +60,11 @@ export const actions = {
     commit('MOVING_LOADING', {loading: false});
   })
   },
+  /**
+   * 获取搜索列表
+   * @param commit
+   * @param state
+   */
   getSearchList({commit, state}){
     console.log(state.searchText)
     utils.get('/movie/search', {q: state.searchText}).then(res => {

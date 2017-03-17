@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="moving">
     <div class="tit">
       <h1>电影票 - {{city}}</h1>
       <div id="" class="locat">
@@ -15,7 +15,7 @@
       <div class="hd">
         <h2>影院上映</h2>
         <ul class="tab-hd clearfix">
-          <li class="on">即将上映</li>
+          <li class="on">正在上映</li>
         </ul>
       </div>
     </div>
@@ -94,7 +94,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style rel="stylesheet/less" lang="less">
-  .hello {
+  .moving {
     margin-bottom: 20px;
     p {
       color: red;

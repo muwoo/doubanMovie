@@ -130,6 +130,7 @@
                 overflow: hidden;
                 text-align: center;
                 float: left;
+                height: 140px;
                 a{
                   img{
                     margin-bottom: 10px;
