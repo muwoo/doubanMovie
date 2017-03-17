@@ -1,6 +1,6 @@
 <template>
   <div class="search-list" v-loading="searchLoading">
-    <searchTag v-for="subject in searchList.subjects" :subject="subject"></searchTag>
+    <searchTag v-for="(subject,index) in searchList.subjects" :subject="subject" :key="index"></searchTag>
   </div>
 </template>
 
@@ -13,16 +13,15 @@
       }
     },
     mounted () {
-      this.$store.dispatch('getSearchList')
+      if (this.searchText === '') {
+        let searchText = this.$route.query.searchText
+        this.$store.commit('SEARCH_TEXT', {searchText})
+        this.$store.dispatch('getSearchList')
+      }
     },
     components: {
       'searchTag': (resolve) => {
         require(['./common/searchTag.vue'], resolve)
-      }
-    },
-    watch: {
-      searchText () {
-        this.$store.dispatch('getSearchList')
       }
     },
     computed: {

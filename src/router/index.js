@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import moving from '@/components/moving'
 import Upcoming from '@/components/upcoming'
 import Top250 from '@/components/top250'
+import MoviesDetail from '@/components/common/moviesDetail'
+
 import Search from '@/components/searchList'
 
 Vue.use(Router)
@@ -26,6 +28,12 @@ export default new Router({
     {
       path: '/search',
       component: Search
+    },
+    {
+      path: '/moviesDetail',
+      name: 'moviesDetail',
+      component: MoviesDetail
     }
+
   ]
 })

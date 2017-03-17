@@ -18,6 +18,9 @@ export const getters = {
   upcomBody: state => {
     return state.upcomBody
   },
+  pageload: state => {
+    return state.pageload
+  },
   city: state => {
     return state.city
   },
@@ -41,5 +44,19 @@ export const getters = {
   },
   start: state => {
     return state.start
+  },
+  id: state => {
+    return state.id
+  },
+  movieDetail: state => {
+    state.movieDetail.rating.average = state.movieDetail.rating.average / 2
+    return state.movieDetail
+  },
+  loadingDetail: state => {
+    return state.loadingDetail
+  },
+  movieComment: state => {
+    return state.movieComment
   }
+
 }

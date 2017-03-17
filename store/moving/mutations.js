@@ -13,6 +13,9 @@ export const mutations = {
   [types.MOVING_LOADING] (state, {loading}){
     state.loadingMoving = loading
   },
+  [types.PAGE_LOAD] (state, {pageload}){
+    state.pageload = pageload
+  },
   [types.UP_COMBODY] (state, {upcomBody}){
     state.upcomBody = upcomBody
   },
@@ -37,5 +40,17 @@ export const mutations = {
   },
   [types.SEARCH_LOADING] (state, {loading}){
     state.searchLoading = loading
+  },
+  [types.MOVING_ID] (state,{id}){
+    state.id = id;
+  },
+  [types.MOVING_DETAIL] (state,{movieDetail}){
+    state.movieDetail = movieDetail;
+  },
+  [types.DETAIL_LOADING] (state,{loading}){
+    state.loadingDetail = loading;
+  },
+  [types.MOVIE_COMMENT] (state,{comment}){
+    state.movieComment = comment;
   }
 }

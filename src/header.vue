@@ -36,15 +36,6 @@
         }, {
           title: 'Top250',
           url: '/top250'
-        }, {
-          title: '口碑榜',
-          url: ''
-        }, {
-          title: '北美票房榜',
-          url: ''
-        }, {
-          title: '新片榜',
-          url: ''
         }]
       }
     },
@@ -54,8 +45,9 @@
       },
       searchMovie () {
         this.$store.commit('SEARCH_TEXT', {searchText: this.content})
+        this.$store.dispatch('getSearchList')
         this.$store.commit('SEARCH_LOADING', {loading: true})
-        this.$router.push('/search')
+        this.$router.push({path: '/search', query: {searchText: this.content}})
       }
     }
   }
@@ -73,12 +65,13 @@
       height: 20px;
       ul{
         li{
-          padding: 7px;
           list-style: none;
           float: left;
           line-height: 20px;
           cursor: pointer;
           a{
+            display: inline-block;
+            padding: 8px;
             font-size: 12px;
             color: #aaa;
             text-decoration: none;

@@ -1,6 +1,9 @@
 <template>
   <div class="search-tag">
-    <img class="search-tag-img" :src="subject.images.medium">
+    <a class="search-img">
+      <img class="search-tag-img movieImg" :src="subject.images.medium">
+    </a>
+
     <div class="search-brief">
       <p class="title">{{subject.title}}/<span>{{subject.original_title}}</span></p>
       <p class="disc">
@@ -41,9 +44,20 @@
 </script>
 <style rel="stylesheet/less" lang="less">
   @import '../../../style/color.less';
+  @import "../../../style/base";
   .search-tag{
     padding: 20px;
     border-top: 1px dashed @line;
+    .search-img{
+      width: 100px;
+      height: 140px;
+      overflow: hidden;
+      display: inline-block;
+      .search-tag-img{
+        width: 100px;
+      }
+    }
+
     .search-brief{
       display: inline-block;
       vertical-align: top;

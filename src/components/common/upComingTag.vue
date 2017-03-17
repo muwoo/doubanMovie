@@ -1,7 +1,7 @@
 <template>
   <li class="item upComing">
-    <a class="thumb" :href="item.alt">
-      <img :src="item.images.small" class="">
+    <a class="thumb" @click="showDetail(item.id)">
+      <img class="movieImg" :src="item.images.large">
     </a>
     <div class="intro">
       <h3>
@@ -39,6 +39,12 @@
         type: Object,
         default: {}
       }
+    },
+    methods: {
+      showDetail (id) {
+        this.$store.commit('DETAIL_LOADING', {loading: true})
+        this.$router.push({path: '/moviesDetail', query: {id: id}})
+      }
     }
   }
 </script>
@@ -56,6 +62,7 @@
       left: 0;
       width: 100px;
       height: 140px;
+      overflow: hidden;
       img {
         width: 100%;
         height: 140px;

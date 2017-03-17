@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <Dheader></Dheader>
-    <router-view></router-view>
+    <transition name="fade">
+      <keep-alive exclude="moviesDetail">
+        <router-view></router-view>
+      </keep-alive>
+    </transition>
   </div>
 </template>
 
@@ -21,6 +25,7 @@ export default {
 </script>
 
 <style lang="less" rel="stylesheet/less">
+  
   *{
     margin: 0;
     padding: 0;
