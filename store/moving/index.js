@@ -17,7 +17,11 @@ const state = {
   loadingMoving: true,
   loadingUpComing: true,
   searchLoading: true,
-  upcomBody: {},
+  pageload: false,
+  upcomBody: {
+    start: 0,
+    pageload: false
+  },
   ranking250: {},
   city: '杭州',
   movieDetail: {

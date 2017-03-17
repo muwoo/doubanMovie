@@ -34,7 +34,14 @@ export const actions = {
    * @param state
    */
   getUpcoming({commit, state}){
-    utils.get('/movie/coming_soon', {city: state.city}).then(res => {
+    utils.get('/movie/coming_soon', {city: state.city,start: state.upcomBody.start+1}).then(res => {
+      
+      if(state.upcomBody.subjects && state.upcomBody.subjects.length){
+        res.subjects = state.upcomBody.subjects.concat(res.subjects);
+        commit('PAGE_LOAD', {pageload: false})
+      }
+      // res.start = state.upcomBody.start + 1;
+      // console.log(res,state.upcomBody)
       commit('UP_COMBODY', {upcomBody: res})
       commit('UP_COMING', {loading: false})
     })

@@ -5,12 +5,12 @@
         <h1>{{city}}-影讯</h1>
         <div id="" class="locat">
           <el-dropdown trigger="click" @command="changeCity">
-            <span class="el-dropdown-link">
+            <a class="el-dropdown-link" href="javascript:;">
               [切换城市]
-            </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item v-for="(city,index) in citys" :command="city.name" :key="index">{{city.name}}</el-dropdown-item>
-            </el-dropdown-menu>
+            </a>
+              <el-dropdown-menu slot="dropdown" >
+                <el-dropdown-item v-for="(city,index) in citys" :command="city.name" :key="index">{{city.name}}</el-dropdown-item>
+              </el-dropdown-menu>
           </el-dropdown>
         </div>
         <div class="hd">
@@ -24,6 +24,11 @@
         <ul class="clearfix">
           <upComingTag v-for="(item,index) in upcomBody.subjects" :item="item" :key="index"></upComingTag>
         </ul>
+        <div class="load-more">
+          <el-button type="text" v-on:click="moredata()" v-show="!pageload && !nodata">加载更多</el-button>
+          <el-button type="text" v-show="pageload">加载中...</el-button>
+          <el-button type="text" v-show="nodata">没有更多了</el-button>
+        </div>
       </div>
     </article>
     <aside class="right-side">
@@ -56,7 +61,8 @@
           {
             name: '杭州'
           }
-        ]
+        ],
+        nodata: false
       }
     },
     mounted () {
@@ -74,6 +80,14 @@
         this.$store.commit('UP_COMING', {loading: true})
         this.$store.commit('MOVIE_CITY', {city: command})
         this.$store.dispatch('getUpcoming')
+      },
+      moredata () {
+        this.$store.commit('PAGE_LOAD', {pageload: true})
+        this.$store.dispatch('getUpcoming')
+        var up = this.$store.getters.upcomBody
+        if (up.start * up.count > up.total) {
+          this.nodata = true
+        }
       }
     },
     computed: {
@@ -90,6 +104,9 @@
        */
       loadingUpComing () {
         return this.$store.getters.loadingUpComing
+      },
+      pageload () {
+        return this.$store.getters.pageload
       },
       /**
        * function 获取当前城市
@@ -178,5 +195,8 @@
     h2, .tab-hd {
       display: inline-block;
     }
+  }
+  .load-more{
+    text-align: center;
   }
 </style>

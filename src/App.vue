@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <Dheader></Dheader>
-    <router-view></router-view>
+
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -26,4 +29,5 @@ export default {
     padding: 0;
     font-family: '微软雅黑';
   }
+  
 </style>

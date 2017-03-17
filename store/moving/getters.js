@@ -18,6 +18,9 @@ export const getters = {
   upcomBody: state => {
     return state.upcomBody
   },
+  pageload: state => {
+    return state.pageload
+  },
   city: state => {
     return state.city
   },
