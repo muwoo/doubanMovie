@@ -34,7 +34,6 @@ export const actions = {
    * @param state
    */
   loadingtop250({commit, state}){
-    console.log('start:'+state.start)
     utils.get('/movie/top250', {start:state.start,count:7}).then(res => {
       console.log(res)
     commit('LOAD_TOP250', {ranking250: res});
