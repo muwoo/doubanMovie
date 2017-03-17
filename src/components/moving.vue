@@ -105,7 +105,7 @@
       margin-top: 20px;
       h1 {
         display: inline-block;
-        width: 120px;
+        width: 126px;
         font-size: 20px;
         color: #000;
       }
