@@ -74,12 +74,13 @@
       height: 20px;
       ul{
         li{
-          padding: 7px;
           list-style: none;
           float: left;
           line-height: 20px;
           cursor: pointer;
           a{
+            display: inline-block;
+            padding: 8px;
             font-size: 12px;
             color: #aaa;
             text-decoration: none;

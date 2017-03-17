@@ -1,35 +1,35 @@
 <template>
-  <div class="container-moving">
+  <div class="container-moving" v-loading="loadingDetail">
     <div class="content">
       <h1>
         <span class="title">{{movieDetail.title}} {{movieDetail.original_title}}</span>
-        <span class="year">{{movieDetail.year}}</span>
+        <span class="year">({{movieDetail.year}})</span>
       </h1>
-      <div class="detail">
+      <div class="detail clearfix">
         <div class="left-side">
           <div class="actor-list">
             <div class="subject">
               <div class="mainpic">
-                <a href="https://movie.douban.com/subject/25900945/photos?type=R"><img :src="movieDetail.images.medium" alt="" title="点击查看更多海报"></a>
-                <p><a class="more-pic" href="https://movie.douban.com/subject/25900945/edit">更新描述或海报</a></p>
+                <a href="https://movie.douban.com/subject/25900945/photos?type=R"><img class="movieImg" :src="movieDetail.images.medium" alt="" title="点击查看更多海报"></a>
               </div>
               <div class="info">
                 <span class="p1">导演: </span><span v-for="item in movieDetail.directors" class="attrs">{{item.name}}</span><br>
-                <span class="p1">编剧: </span><span v-for="item in movieDetail.writers" class="attrs">{{item.name}}</span><br>
                 <span class="p1">主演: </span><span v-for="item in movieDetail.casts" class="attrs">{{item.name}}/</span><br>
                 <span class="p1">类型: </span><span v-for="item in movieDetail.genres" class="attrs">{{item}}/</span><br>
                 <span class="p1">制片国家/地区: </span><span v-for="(item,index) in movieDetail.countries" class="attrs">{{item}}</span><br>
-                <span class="p1">语言: </span><span class="attrs">比尔·康顿</span><br>
-                <span class="p1">上映日期: </span><span v-for="item in movieDetail.pubdates" class="attrs">{{item}}</span><br>
-                <span class="p1">片长: </span><span class="attrs">{{movieDetail.durations}}</span><br>
                 <span class="p1">IMDb链接: </span><span class="attrs"></span><br>
               </div>
             </div>
             <div class="people-sroce">
               <div>
                 <p>豆瓣评分</p>
-                <el-rate></el-rate>
-                <p>尚未上映</p>
+                <span class="score" v-if="movieDetail.rating.average * 2">{{movieDetail.rating.average * 2}}</span>
+                <el-rate
+                  v-model="movieDetail.rating.average"
+                  disabled>
+                </el-rate>
+                <p class="no-publish" v-if="!movieDetail.rating.average * 2">尚未上映</p>
+                <p class="comment-num" v-if="movieDetail.rating.average * 2">{{movieDetail.ratings_count}}人评价</p>
               </div>
             </div>
           </div>
@@ -51,6 +51,11 @@
               <li><img src="" alt=""><a href="">分享到</a></li>
             </ul>
           </div>
+          <div class="summary">
+            <p class="summary-title">{{movieDetail.title}}的剧情简介  ·  ·  ·  ·  ·  ·</p>
+            <p class="intro">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{movieDetail.summary}}</p>
+          </div>
+          <movieComment :title="movieDetail.title"></movieComment>
         </div>
         <div class="right-side">
           <div class="ticket">
@@ -65,6 +70,7 @@
 </template>
 <script>
   export default{
+    name: 'moviesDetail',
     data () {
       return {
 
@@ -75,20 +81,26 @@
       this.$store.commit('MOVING_ID', {id})
       this.$store.dispatch('getMovieDetail')
     },
-    watch () {
-
+    components: {
+      'movieComment': (resolve) => {
+        require(['./movieComment.vue'], resolve)
+      }
     },
     computed: {
       movieDetail () {
         return this.$store.getters.movieDetail
+      },
+      loadingDetail () {
+        return this.$store.getters.loadingDetail
       }
     }
   }
 </script>
 <style rel="stylesheet/less" lang="less">
+  @import "../../../style/base";
   .container-moving{
     width: 950px;
-    margin: 0 auto;
+    margin: 30px auto;
     .content{
       min-height: 420px;
       h1{
@@ -98,6 +110,9 @@
         font-weight: bold;
         color: #494949;
         padding: 0 0 15px 0;
+        .year{
+          color: #888;
+        }
       }
       .detail{
         .left-side{
@@ -147,6 +162,24 @@
               margin: 2px 0 0 0;
               padding: 0 0 0 15px;
               border-left:1px solid #eaeaea;
+              color: #aaa;
+              .score{
+                font-size: 25px;
+                margin-right: 10px;
+              }
+              .el-rate{
+                vertical-align: top;
+                display: inline-block;
+                margin-top: 3px;
+                i{
+                  font-size: 14px;
+                }
+              }
+              .comment-num{
+                margin-top: -20px;
+                margin-left: 45px;
+                color: #666699;
+              }
             }
           }
           .insterest-people{
@@ -193,6 +226,15 @@
                   color: #37a;
                 }
               }
+            }
+          }
+          .summary{
+            float: left;
+            clear: both;
+            margin-top: 20px;
+            .summary-title{
+              color: #007722;
+              font-size: 16px;
             }
           }
         }

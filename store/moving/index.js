@@ -22,13 +22,17 @@ const state = {
     start: 0,
     pageload: false
   },
+  loadingDetail: true,
+  upcomBody: {},
   ranking250: {},
   city: '杭州',
   movieDetail: {
+    rating: {},
     images: {}
   },
   id:'',
-  start:0
+  start:0,
+  movieComment: {} //电影短评
 }
 
 export default {

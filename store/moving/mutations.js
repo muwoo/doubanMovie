@@ -46,5 +46,11 @@ export const mutations = {
   },
   [types.MOVING_DETAIL] (state,{movieDetail}){
     state.movieDetail = movieDetail;
+  },
+  [types.DETAIL_LOADING] (state,{loading}){
+    state.loadingDetail = loading;
+  },
+  [types.MOVIE_COMMENT] (state,{comment}){
+    state.movieComment = comment;
   }
 }

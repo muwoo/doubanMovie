@@ -22,9 +22,10 @@ export const actions = {
    * @param commit
    */
   getMovieDetail({commit,state}){
+    //commit('MOVING_DETAIL', {movieDetail:{}})
     utils.get(`/movie/subject/${state.id}`, {}).then(res => {
-      console.log(res);
-      commit('MOVING_DETAIL',{movieDetail:res})
+      commit('DETAIL_LOADING', {loading: false})
+      commit('MOVING_DETAIL', {movieDetail:res})
     })
 
   },
@@ -64,6 +65,16 @@ export const actions = {
     utils.get('/movie/search', {q: state.searchText}).then(res => {
       commit('SEARCH_LIST', {searchList: res})
       commit('SEARCH_LOADING', {loading: false})
+    })
+  },
+  /**
+   * 获取电影短评
+   * @param commit
+   * @param state
+   */
+  getMovieList({commit, state}){
+    utils.get(`/movie/subject/${state.id}/comments`, {}).then(res => {
+      commit('MOVIE_COMMENT', {comment: res})
     })
   }
 }

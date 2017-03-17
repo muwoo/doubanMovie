@@ -49,7 +49,14 @@ export const getters = {
     return state.id
   },
   movieDetail: state => {
+    state.movieDetail.rating.average = state.movieDetail.rating.average / 2
     return state.movieDetail
+  },
+  loadingDetail: state => {
+    return state.loadingDetail
+  },
+  movieComment: state => {
+    return state.movieComment
   }
 
 }
