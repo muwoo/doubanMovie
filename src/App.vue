@@ -25,18 +25,7 @@ export default {
 </script>
 
 <style lang="less" rel="stylesheet/less">
-  .fade-enter-active {
-    transition: opacity 0.2s
-  }
-  .fade-leave-active {
-    transition: opacity 0.2s
-  }
-  .fade-enter-active {
-    opacity: 0
-  }
-  .fade-leave-active {
-    opacity: 0
-  }
+  
   *{
     margin: 0;
     padding: 0;
