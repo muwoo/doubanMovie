@@ -26,7 +26,7 @@ npm run build --report
 ## 安装 vue-cli 脚手架  
 
 
-运行如下命令，即可创建一个名为 my-project 的 vue 项目，并且通过本地 8080 端口启动服务   
+运行如下命令，即可创建一个名为 doubanMovie 的 vue 项目，并且通过本地 8080 端口启动服务   
     
 ``` bash
 npm install -g vue-cli
@@ -37,7 +37,7 @@ npm run dev
 ```
 
 
-在运行 `vue init webpack my-project` 后，会依次要求输入以下配置内容  
+在运行 `vue init webpack doubanMovie` 后，会依次要求输入以下配置内容  
 - 项目名称
 - 项目描述
 - 作者
