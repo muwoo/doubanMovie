@@ -5,7 +5,7 @@ import Element from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import App from './App'
 import router from './router'
-import store from '../store'
+import store from './store'
 Vue.use(Element)
 
 Vue.config.productionTip = false
