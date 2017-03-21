@@ -53,8 +53,11 @@ export const actions = {
    * @param state
    */
   loadingtop250({commit, state}){
-    utils.get('/movie/top250', {start:state.start,count:7}).then(res => {
-      console.log(res)
+    utils.get('/movie/top250', {start:state.start,count:10}).then(res => {
+      let subject = state.ranking250.subjects
+      if(subject!=undefined){
+        res.subjects = subject.concat(res.subjects)
+      }
     commit('LOAD_TOP250', {ranking250: res});
     commit('MOVING_LOADING', {loading: false});
   })
