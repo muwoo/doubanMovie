@@ -1,6 +1,7 @@
 # 豆瓣电影简单展示
 > this is doubanMovie show By vue2.0
-
+# 演示地址
+[豆瓣电影](http://139.199.163.228:8081/)
 ## 安装步骤
 ``` bash
 # install dependencies
