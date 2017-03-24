@@ -1,6 +1,7 @@
 # 豆瓣电影简单展示
 > this is doubanMovie show By vue2.0
-
+# 演示地址
+[豆瓣电影](http://139.199.163.228:8081/)
 ## 安装步骤
 ``` bash
 # install dependencies
@@ -153,6 +154,53 @@ hotClient.subscribe(function (event) {
 > 更多请参考 [豆瓣电影 API](https://developers.douban.com/wiki) 文档。    
 
 这样我们就可以在应用中调用 `/api/movie/in_theaters` 来访问 `http://api.douban.com/v2/movie/in_theaters`，从而解决跨域的问题。
+## build生产环境服务跨域方案
+以nginx作为简单的描述：找到nginx的配置文件config/nginx.config;用下面代码替换这个文件里面的代码
+```shell
+#
+# The default server
+#
+
+server {
+    listen       80;
+
+    # 需要将主机名改为豆瓣 api
+    server_name  api.douban.com;
+
+    # root 即指向服务器存放的编译出的 index.html 目录
+    root         /var/www/Vdo/dist;
+
+    # 设定根路由
+    location / {
+
+        # 指定 index 文件
+        index index.html;
+
+        # 将其他任何路由都交给 index.html 处理，保证能使用 HTML5 History 模式
+        # REF https://router.vuejs.org/zh-cn/essentials/history-mode.html#nginx
+        try_files $uri $uri/ /index.html;
+    }
+
+    # 设定转发豆瓣 api，即 localhost/api/XXX -> api.douban.com/v2/XXX
+    location /api/ {
+
+        # 设定头部
+        proxy_set_header Host api.douban.com;
+
+        # 设定代理目标
+        proxy_pass http://api.douban.com/v2/;
+    }
+    error_page 404 /404.html;
+        location = /40x.html {
+    }
+
+    error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+    }
+
+}
+```
+保存启动ngix便可以了
 
 ## 使用 vue-resource 
 

@@ -18,6 +18,7 @@
     },
     data () {
       return {
+        top250: [],
         timer: null,
         isLoad: false,
         page: 1,
@@ -26,23 +27,22 @@
       }
     },
     mounted () {
-      this.$store.commit('PAGE_START', {start: 8})
+      this.$store.commit('PAGE_START', {start: 0})
       this.$store.dispatch('loadingtop250')
-      window.onscroll = function () {
-        console.log('111')
+      window.onscroll = () => {
         if (!this.isLoad) {
-          this.isLoad = true
-          if (util.getScrollTop() + util.getClientHeight() + 200 >= util.getScrollHeight()) {
-            this.page = this.page + 1
+          if (util.getScrollTop() + util.getClientHeight() + 400 > util.getScrollHeight()) {
+            let page = this.page + 1
             if (this.page <= this.totalPage) {
-              console.log('222')
-              this.start = this.page * 10 + 1
+              this.isLoad = true
+              this.page = page
+              this.start = (this.page - 1) * 10
               this.$store.commit('PAGE_START', {start: this.start})
               this.$store.dispatch('loadingtop250')
             }
           }
         }
-      }.bind(this)
+      }
     },
     components: {
       'searchTag': (resolve) => {
@@ -52,8 +52,9 @@
     computed: {
       ranking250 () {
         this.isLoad = false
-        this.totalPage = this.$store.getters.ranking250.total
-        return this.$store.getters.ranking250
+        let ranklist = this.$store.getters.ranking250
+        this.totalPage = ranklist.total
+        return ranklist
       },
       loadingMoving () {
         return this.$store.getters.loadingMoving
