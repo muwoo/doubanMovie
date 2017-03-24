@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import moving from '@/components/moving'
+import Moving from '@/components/moving'
 import Upcoming from '@/components/upcoming'
 import Top250 from '@/components/top250'
 import MoviesDetail from '@/components/common/moviesDetail'
@@ -8,12 +8,15 @@ import MoviesDetail from '@/components/common/moviesDetail'
 import Search from '@/components/searchList'
 
 Vue.use(Router)
-
+/**
+ * 路由信息配置
+ */
 export default new Router({
   routes: [
     {
       path: '/',
-      component: moving
+      name: 'Moving',
+      component: Moving
     },
     {
       path: '/upcoming',
@@ -27,6 +30,7 @@ export default new Router({
     },
     {
       path: '/search',
+      name: 'Search',
       component: Search
     },
     {

@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="less" rel="stylesheet/less">
-  
+
   *{
     margin: 0;
     padding: 0;
