@@ -2,6 +2,7 @@
 > this is doubanMovie show By vue2.0
 # 演示地址
 [豆瓣电影](http://139.199.163.228:8081/)
+服务器欠费了，没有继续续费了，想要看效果的小伙伴可以fork下来在本地run dev 一下。
 ## 安装步骤
 ``` bash
 # install dependencies
