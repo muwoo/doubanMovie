@@ -5,19 +5,13 @@
         <h1>{{city}}-影讯</h1>
         <div id="" class="locat">
           <el-dropdown trigger="click" @command="changeCity">
-            <a class="el-dropdown-link" href="javascript:;">
+            <a class="el-dropdown-link">
               [切换城市]
             </a>
               <el-dropdown-menu slot="dropdown" >
                 <el-dropdown-item v-for="(city,index) in citys" :command="city.name" :key="index">{{city.name}}</el-dropdown-item>
               </el-dropdown-menu>
           </el-dropdown>
-        </div>
-        <div class="hd">
-          <h2>影院上映</h2>
-          <ul class="tab-hd clearfix">
-            <li class="on">即将上映</li>
-          </ul>
         </div>
       </div>
       <div class="two-list" v-loading="loadingUpComing">
@@ -84,7 +78,7 @@
       moredata () {
         this.$store.commit('PAGE_LOAD', {pageload: true})
         this.$store.dispatch('getUpcoming')
-        var up = this.$store.getters.upcomBody
+        let up = this.$store.getters.upcomBody
         if (up.start * up.count > up.total) {
           this.nodata = true
         }
@@ -147,7 +141,6 @@
     margin-top: 20px;
     h1 {
       display: inline-block;
-      width: 90px;
       font-size: 20px;
       color: #000;
     }
@@ -189,13 +182,6 @@
     }
   }
 
-  .hd {
-    padding: 10px 0;
-    border-bottom: 1px dashed #ccc;
-    h2, .tab-hd {
-      display: inline-block;
-    }
-  }
   .load-more{
     text-align: center;
   }

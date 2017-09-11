@@ -12,12 +12,6 @@
           </el-dropdown-menu>
         </el-dropdown>
       </div>
-      <div class="hd">
-        <h2>影院上映</h2>
-        <ul class="tab-hd clearfix">
-          <li class="on">正在上映</li>
-        </ul>
-      </div>
     </div>
     <MoviesTag :data="movingList" class="movieTag"></MoviesTag>
 
@@ -113,9 +107,6 @@
         position: relative;
         display: inline-block;
 
-      }
-      .hd{
-        border: none;
       }
     }
   }
